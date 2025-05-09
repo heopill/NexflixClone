@@ -9,7 +9,7 @@ import Foundation
 import RxSwift
 
 class MainViewModel {
-    private let apiKey = "0cdb81fb754b47e16b59972094335758"
+    private let apiKey = ""
     private let disposeBag = DisposeBag()
     
     // View가 구독할 Subject
