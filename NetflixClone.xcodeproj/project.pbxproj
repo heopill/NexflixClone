@@ -6,6 +6,15 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		BBA6DF7B2DCDD41E00918530 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = BBA6DF7A2DCDD41E00918530 /* SnapKit */; };
+		BBA6DF8B2DCDE7AC00918530 /* RxBlocking in Frameworks */ = {isa = PBXBuildFile; productRef = BBA6DF8A2DCDE7AC00918530 /* RxBlocking */; };
+		BBA6DF8F2DCDE7AC00918530 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = BBA6DF8E2DCDE7AC00918530 /* RxCocoa */; };
+		BBA6DF932DCDE7AC00918530 /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = BBA6DF922DCDE7AC00918530 /* RxRelay */; };
+		BBA6DF972DCDE7AC00918530 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = BBA6DF962DCDE7AC00918530 /* RxSwift */; };
+		BBA6DFA02DCDF91A00918530 /* YouTubeiOSPlayerHelper in Frameworks */ = {isa = PBXBuildFile; productRef = BBA6DF9F2DCDF91A00918530 /* YouTubeiOSPlayerHelper */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		BBA6DF3E2DCDCE9D00918530 /* NetflixClone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NetflixClone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -36,6 +45,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BBA6DF932DCDE7AC00918530 /* RxRelay in Frameworks */,
+				BBA6DF7B2DCDD41E00918530 /* SnapKit in Frameworks */,
+				BBA6DF8F2DCDE7AC00918530 /* RxCocoa in Frameworks */,
+				BBA6DF972DCDE7AC00918530 /* RxSwift in Frameworks */,
+				BBA6DF8B2DCDE7AC00918530 /* RxBlocking in Frameworks */,
+				BBA6DFA02DCDF91A00918530 /* YouTubeiOSPlayerHelper in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +93,12 @@
 			);
 			name = NetflixClone;
 			packageProductDependencies = (
+				BBA6DF7A2DCDD41E00918530 /* SnapKit */,
+				BBA6DF8A2DCDE7AC00918530 /* RxBlocking */,
+				BBA6DF8E2DCDE7AC00918530 /* RxCocoa */,
+				BBA6DF922DCDE7AC00918530 /* RxRelay */,
+				BBA6DF962DCDE7AC00918530 /* RxSwift */,
+				BBA6DF9F2DCDF91A00918530 /* YouTubeiOSPlayerHelper */,
 			);
 			productName = NetflixClone;
 			productReference = BBA6DF3E2DCDCE9D00918530 /* NetflixClone.app */;
@@ -107,6 +128,11 @@
 			);
 			mainGroup = BBA6DF352DCDCE9D00918530;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				BBA6DF792DCDD41E00918530 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				BBA6DF892DCDE7AC00918530 /* XCRemoteSwiftPackageReference "RxSwift" */,
+				BBA6DF9E2DCDF91A00918530 /* XCRemoteSwiftPackageReference "youtube-ios-player-helper" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = BBA6DF3F2DCDCE9D00918530 /* Products */;
 			projectDirPath = "";
@@ -145,18 +171,20 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = U73C5KBSMA;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = NetflixClone/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.example.NetflixClone;
+				PRODUCT_BUNDLE_IDENTIFIER = com.heopill.NetflixClone;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -171,18 +199,20 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = U73C5KBSMA;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = NetflixClone/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.example.NetflixClone;
+				PRODUCT_BUNDLE_IDENTIFIER = com.heopill.NetflixClone;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -331,6 +361,66 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		BBA6DF792DCDD41E00918530 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.7.1;
+			};
+		};
+		BBA6DF892DCDE7AC00918530 /* XCRemoteSwiftPackageReference "RxSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactiveX/RxSwift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.9.0;
+			};
+		};
+		BBA6DF9E2DCDF91A00918530 /* XCRemoteSwiftPackageReference "youtube-ios-player-helper" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/youtube/youtube-ios-player-helper";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.4;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		BBA6DF7A2DCDD41E00918530 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BBA6DF792DCDD41E00918530 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+		BBA6DF8A2DCDE7AC00918530 /* RxBlocking */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BBA6DF892DCDE7AC00918530 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxBlocking;
+		};
+		BBA6DF8E2DCDE7AC00918530 /* RxCocoa */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BBA6DF892DCDE7AC00918530 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxCocoa;
+		};
+		BBA6DF922DCDE7AC00918530 /* RxRelay */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BBA6DF892DCDE7AC00918530 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxRelay;
+		};
+		BBA6DF962DCDE7AC00918530 /* RxSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BBA6DF892DCDE7AC00918530 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxSwift;
+		};
+		BBA6DF9F2DCDF91A00918530 /* YouTubeiOSPlayerHelper */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BBA6DF9E2DCDF91A00918530 /* XCRemoteSwiftPackageReference "youtube-ios-player-helper" */;
+			productName = YouTubeiOSPlayerHelper;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = BBA6DF362DCDCE9D00918530 /* Project object */;
 }
