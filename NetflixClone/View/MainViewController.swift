@@ -81,8 +81,8 @@ class MainViewController: UIViewController {
 
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
         
-        // 각 그룹의 넓이는 화면 너비의 25%를 차지하고, 높이는 넓이의 40%
-        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.25), heightDimension: .fractionalHeight(0.4))
+        // 각 그룹의 넓이는 화면 너비의 25%를 차지하고, 높이는 넓이의 30%
+        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.25), heightDimension: .fractionalHeight(0.3))
         
         let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
         
