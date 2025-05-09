@@ -30,6 +30,12 @@ class PosterCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // 재활용 되기 전에 어떤 로직을 수행할 것인가
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        imageView.image = nil
+    }
+    
     func configure(with movie: Movie) {
         guard let posterPath = movie.posterPath else { return }
         let urlString = "https://image.tmdb.org/t/p/w500/\(posterPath).jpg"
