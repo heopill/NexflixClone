@@ -8,6 +8,8 @@
 import UIKit
 import SnapKit
 import RxSwift
+import AVKit
+import AVFoundation
 
 class MainViewController: UIViewController {
     
@@ -16,7 +18,7 @@ class MainViewController: UIViewController {
     private var popularMovies = [Movie]()
     private var topRateMovies = [Movie]()
     private var upcomingMovies = [Movie]()
-
+    
     private let label: UILabel = {
         let label = UILabel()
         label.text = "NETFLIX"
@@ -73,12 +75,12 @@ class MainViewController: UIViewController {
                 print("에러 발생: \(error)")
             }).disposed(by: disposeBag)
     }
-
+    
     private func createLayout() -> UICollectionViewLayout{
         
         // 각 아이템이 각 그룹 내에서 전체 너비와 전체 높이를 차지. (1.0 = 100%)
         let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalHeight(1.0))
-
+        
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
         
         // 각 그룹의 넓이는 화면 너비의 25%를 차지하고, 높이는 넓이의 30%
@@ -117,6 +119,23 @@ class MainViewController: UIViewController {
             make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
         }
     }
+    
+    private func playVideoUrl() {
+        
+        // url을 인자로 받기만, 유튜브 url은 정책상 바로 재생할 수 없으므로
+        // 임의의 url을 넣어서 동영상 재생의 구현만 연습
+        let url = URL(string: "https://storage.googleapis.com/gtv-videos-bucket/sample/Sintel.mp4")!
+        
+        let player = AVPlayer(url: url)
+        
+        let playerViewController = AVPlayerViewController()
+        
+        playerViewController.player = player
+        
+        present(playerViewController, animated: true) {
+            player.play()
+        }
+    }
 }
 
 enum Section: Int, CaseIterable {
@@ -135,7 +154,42 @@ enum Section: Int, CaseIterable {
 
 
 extension MainViewController: UICollectionViewDelegate {
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        switch Section(rawValue: indexPath.section) {
+        case .popularMovies:
+            viewModel.fetchTrailerKey(movie: popularMovies[indexPath.row])
+                .observe(on: MainScheduler.instance)
+                .subscribe(onSuccess: { [weak self] key in
+                    self?.navigationController?.pushViewController(YoutubeViewController(key: key), animated: true)
+                }, onFailure: { error in
+                    print("에러 발생: \(error)")
+                }).disposed(by: disposeBag)
+            
+        case .topRateMovies:
+            viewModel.fetchTrailerKey(movie: topRateMovies[indexPath.row])
+                .observe(on: MainScheduler.instance)
+                .subscribe(onSuccess: { [weak self] key in
+                    self?.navigationController?.pushViewController(YoutubeViewController(key: key), animated: true)
+                }, onFailure: { error in
+                    print("에러 발생: \(error)")
+                }).disposed(by: disposeBag)
+            
+            
+        case .upcomingMovies:
+            viewModel.fetchTrailerKey(movie: upcomingMovies[indexPath.row])
+                .observe(on: MainScheduler.instance)
+                .subscribe(onSuccess: { [weak self] key in
+                    self?.navigationController?.pushViewController(YoutubeViewController(key: key), animated: true)
+                }, onFailure: { error in
+                    print("에러 발생: \(error)")
+                }).disposed(by: disposeBag)
+            
+        default:
+            return
+        }
+        
+        
+    }
 }
 
 extension MainViewController: UICollectionViewDataSource {
