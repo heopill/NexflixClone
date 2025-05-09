@@ -7,9 +7,12 @@
 
 import UIKit
 import SnapKit
+import RxSwift
 
 class MainViewController: UIViewController {
     
+    private let viewModel = MainViewModel()
+    private let disposeBag = DisposeBag()
     private var popularMovies = [Movie]()
     private var topRateMovies = [Movie]()
     private var upcomingMovies = [Movie]()
@@ -38,8 +41,37 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        bind()
         configureUI()
- 
+    }
+    
+    private func bind() {
+        viewModel.popularMovieSubject
+            .observe(on: MainScheduler.instance) // 메인쓰레드에서 동작해라 라는 뜻
+            .subscribe(onNext: { [weak self] movies in
+                self?.popularMovies = movies
+                self?.collectionView.reloadData()
+            }, onError: { error in
+                print("에러 발생: \(error)")
+            }).disposed(by: disposeBag)
+        
+        viewModel.topRatedMovieSubject
+            .observe(on: MainScheduler.instance)
+            .subscribe(onNext: { [weak self] movies in
+                self?.topRateMovies = movies
+                self?.collectionView.reloadData()
+            }, onError: { error in
+                print("에러 발생: \(error)")
+            }).disposed(by: disposeBag)
+        
+        viewModel.upcomingMovieSubject
+            .observe(on: MainScheduler.instance)
+            .subscribe(onNext: { [weak self] movies in
+                self?.upcomingMovies = movies
+                self?.collectionView.reloadData()
+            }, onError: { error in
+                print("에러 발생: \(error)")
+            }).disposed(by: disposeBag)
     }
 
     private func createLayout() -> UICollectionViewLayout{
@@ -58,6 +90,12 @@ class MainViewController: UIViewController {
         section.orthogonalScrollingBehavior = .continuous
         section.interGroupSpacing = 10
         section.contentInsets = .init(top: 10, leading: 10, bottom: 20, trailing: 10)
+        
+        let headerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .estimated(44))
+        
+        let header = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: headerSize, elementKind: UICollectionView.elementKindSectionHeader, alignment: .top)
+        
+        section.boundarySupplementaryItems = [header]
         
         return UICollectionViewCompositionalLayout(section: section)
     }
@@ -143,7 +181,10 @@ extension MainViewController: UICollectionViewDataSource {
         }
     }
     
-    
+    // collectionView의 섹션이 몇 개인지 설정하는 메서드
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return Section.allCases.count
+    }
     
     
 }
